@@ -1,0 +1,25 @@
+@model IList<empresaapp.Models.Client>;
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Address</td>
+            </tr>
+        }
+    </tbody>
+</table>

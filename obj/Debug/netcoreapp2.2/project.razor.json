@@ -2797,6 +2797,11 @@
       "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Client\\Index.cshtml",
+      "TargetPath": "Views\\Client\\Index.cshtml",
+      "FileKind": "mvc"
     }
   ]
 }
