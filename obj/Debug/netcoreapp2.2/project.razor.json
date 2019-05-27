@@ -2802,6 +2802,11 @@
       "FilePath": "Views\\Client\\Index.cshtml",
       "TargetPath": "Views\\Client\\Index.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Client\\Form.cshtml",
+      "TargetPath": "Views\\Client\\Form.cshtml",
+      "FileKind": "mvc"
     }
   ]
 }
