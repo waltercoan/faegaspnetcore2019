@@ -1,21 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
-using empresaapp.Services;
 using Microsoft.AspNetCore.Mvc;
+using empresaapp.Models;
+using empresaapp.Services;
+
 
 namespace empresaapp.Controllers
 {
     public class ClientController : Controller
     {
-        private IClientService service = null;
-        public ClientController(IClientService service)
+        public IClientService ClientService;
+
+        public ClientController(IClientService ClientService)
         {
-            this.service = service;
+            this.ClientService = ClientService;
         }
         public async Task<IActionResult> Index()
         {
-            var _listClient = await this.service.GetAll();
+            var _listClient = await this.ClientService.GetAll();
             return View(_listClient);
         }
-        
+        [HttpGet]
+        public IActionResult Form()
+        {
+            var client = new Client();
+            return View(client);
+        }
+        [HttpPost]
+        public IActionResult Form(Client client)
+        {
+            if(ModelState.IsValid){
+                this.ClientService.Save(client);
+                return RedirectToAction("Index");
+            }
+            return View(client);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int Id)
+        {
+            var client = await ClientService.GetById(Id);
+            return View("Form",client);
+        }
+
+
     }
 }

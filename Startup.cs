@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using empresaapp.Db;
-using empresaapp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using empresaapp.Services;
 
 namespace empresaapp
 {
@@ -35,11 +35,14 @@ namespace empresaapp
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddEntityFrameworkSqlServer().AddDbContext<AppDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
             
+            //services.AddEntityFrameworkSqlServer().AddDbContext<AppDbContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
 
-            services.AddScoped<IClientService,ClientService>();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlite(
+                Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IClientService, ClientService>();
 
         }
 

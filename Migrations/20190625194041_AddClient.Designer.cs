@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using empresaapp.Db;
@@ -10,28 +9,26 @@ using empresaapp.Db;
 namespace empresaapp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190514193422_AddClient")]
+    [Migration("20190625194041_AddClient")]
     partial class AddClient
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
             modelBuilder.Entity("empresaapp.Models.Client", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
 
                     b.Property<DateTime>("Birthday");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -41,8 +38,8 @@ namespace empresaapp.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "Rua allalal",
-                            Birthday = new DateTime(2019, 5, 14, 16, 34, 22, 769, DateTimeKind.Local).AddTicks(2492),
+                            Address = "Rua lalalal 100",
+                            Birthday = new DateTime(2019, 6, 25, 16, 40, 40, 951, DateTimeKind.Local).AddTicks(3201),
                             Name = "Zezinho"
                         });
                 });
