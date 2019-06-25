@@ -33,5 +33,14 @@ namespace empresaapp.Services
             
             
         }
+        public void Delete(int id){
+            
+            var customer = new Client{
+                Id = id
+            };
+            
+            context.Clients.Remove(customer);
+            context.SaveChanges();
+        }
     }
 }   

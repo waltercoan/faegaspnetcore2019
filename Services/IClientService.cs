@@ -9,5 +9,7 @@ namespace empresaapp.Services
          Task<IList<Client>> GetAll();
          void Save(Client client);
          Task<Client> GetById(int id);
+
+         void Delete(int id);
     }
 }

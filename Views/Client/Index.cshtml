@@ -4,13 +4,9 @@
     ViewData["Title"] = "Clientes"; 
 }
 <h2>Index</h2>
-<<<<<<< HEAD
 @Html.ActionLink("Novo","Form","Client",null, new {@class = "btn btn-primary"})
 
-=======
-@Html.ActionLink("Novo","Form","Client", null,new {@class = "btn btn-primary"})
->>>>>>> bffc058b60c059de536ef9b41f2023c97b833b76
-<table class="table">
+<table class="table" id="clientes">
     <thead>
         <tr>
             <th>Id</th>
@@ -28,9 +24,33 @@
                 <td>@item.Address</td>
 
                 <td>@Html.ActionLink("Alterar","Edit","Client",
-                     new {id=item.Id} ,new {@class = "btn btn-primary"})
+                     new {id=item.Id} ,new {@class = "btn btn-lg btn-primary"})
+                    <button class='btn btn-danger btn-lg js-delete'
+								data-customer-id="@item.Id">
+								Excluir
+					</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+@section Scripts {
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            $("#clientes").on("click", ".js-delete", function(){
+                var button = $(this);
+                bootbox.confirm("Você tem certeza que quer excluir este cliente?",function(result){
+                    if(result){
+                        $.ajax({
+                            url: "/Client/Delete/" + button.attr("data-customer-id"),
+                            method: "GET",
+                            success: function () {
+                                window.location.href = "/Client/"
+                            }
+                        });
+                    }
+                });
+            });
+        }); 
+    </script>
+}

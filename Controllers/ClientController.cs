@@ -46,5 +46,11 @@ namespace empresaapp.Controllers
             }
             return View(client);
         }
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            this.ClientService.Delete(Id);
+            return RedirectToAction("Index");
+        }
     }
 }
