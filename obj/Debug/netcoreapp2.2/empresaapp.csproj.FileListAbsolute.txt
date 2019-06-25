@@ -28,3 +28,5 @@ D:\2019\faegdotnetcore2019\empresaapp\obj\Debug\netcoreapp2.2\empresaapp.Views.p
 D:\2019\faegdotnetcore2019\empresaapp\obj\Debug\netcoreapp2.2\empresaapp.dll
 D:\2019\faegdotnetcore2019\empresaapp\obj\Debug\netcoreapp2.2\empresaapp.pdb
 D:\2019\faegdotnetcore2019\empresaapp\obj\Debug\netcoreapp2.2\empresaapp.csproj.CopyComplete
+D:\2019\faegdotnetcore2019\empresaapp\obj\Debug\netcoreapp2.2\Razor\Views\Client\Index.g.cshtml.cs
+D:\2019\faegdotnetcore2019\empresaapp\obj\Debug\netcoreapp2.2\Razor\Views\Client\Form.g.cshtml.cs

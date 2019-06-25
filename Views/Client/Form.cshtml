@@ -1,0 +1,22 @@
+@model empresaapp.Models.Client;
+@{
+    ViewData["Title"] = "Cliente"; 
+}
+<h2>Cliente</h2>
+@using (Html.BeginForm("Form","Client"))
+{
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address)
+        @Html.EditorFor(m => m.Address)
+        @Html.ValidationMessageFor(m => m.Address)
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+}
