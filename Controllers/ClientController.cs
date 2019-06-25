@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using empresaapp.Models;
 using empresaapp.Services;
 
+
 namespace empresaapp.Controllers
 {
     public class ClientController : Controller
@@ -43,6 +44,7 @@ namespace empresaapp.Controllers
             var client = await ClientService.GetById(Id);
             return View("Form",client);
         }
+
 
     }
 }
