@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using empresaapp.Models;
 using empresaapp.Services;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace empresaapp.Controllers
@@ -29,22 +29,22 @@ namespace empresaapp.Controllers
             var client = new Client();
             return View(client);
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int Id)
+        {
+            var client = await this.ClientService.GetById(Id);
+            return View("Form",client);
+        }
+        
         [HttpPost]
         public IActionResult Form(Client client)
         {
-            if(ModelState.IsValid){
+            if (ModelState.IsValid)
+            {
                 this.ClientService.Save(client);
                 return RedirectToAction("Index");
             }
             return View(client);
         }
-        [HttpGet]
-        public async Task<IActionResult> Edit(int Id)
-        {
-            var client = await ClientService.GetById(Id);
-            return View("Form",client);
-        }
-
-
     }
 }
